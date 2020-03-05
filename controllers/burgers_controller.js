@@ -1,4 +1,4 @@
-const connection = require ("../config/connectio");
+const connection = require ("../config/connection");
 
 //get all burgers
 
@@ -34,7 +34,7 @@ const createBurger = burgerObj =>{
 //update burger
 
 const updateBurger = (burgerObj, burgerId)=>{
-  return new Promise((resolbe, reject)=>{
+  return new Promise((resolve, reject)=>{
     connection.query("UPDATE burgers SET ?WHERE id = ?",[burgerObj,burgerId],(err,burgerdata)=>{
       if (err){
         console.log(err);
