@@ -5,13 +5,13 @@ CREATE DATABASE burger_db;
 USE burger_db;
 
 CREATE TABLE burgers(
-  id INT NOY NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   burger_name VARCHAR (255) NOT NULL,
-  picked BOOLEAN DEFAULT false NOT NULL,
+  eaten BOOLEAN DEFAULT false NOT NULL,
   PRIMARY KEY (id)
 );
 
-INSERT INTO burgers(
+INSERT INTO burgers
   (burger_name)
   VALUES
   ("Cheeseburger"),
@@ -19,6 +19,6 @@ INSERT INTO burgers(
   ("Turkey Burger"),
   ("Veggie Burger"),
   ("Salmon Burger")
-)
+
 
 SELECT * FROM burgers;
