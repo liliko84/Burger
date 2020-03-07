@@ -27,7 +27,7 @@ $('.eatBurger').on('click', function() {
     url: `/api/burgers/${burgerId}`,
     method: 'PUT',
     data: {
-      adopted: 1
+      eaten: 1
     }
   }).then(response => {
     console.log(response);

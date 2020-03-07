@@ -2,7 +2,7 @@ const connection = require ("../config/connection");
 
 //get all burgers
 
-const getBurgers = () =>{
+const getBurger = () => {
   return new Promise((resolve,reject)=>{
   connection.query("SELECT * FROM burgers",(err,burgerdata)=>{
     if(err){
@@ -35,7 +35,7 @@ const createBurger = burgerObj =>{
 
 const updateBurger = (burgerObj, burgerId)=>{
   return new Promise((resolve, reject)=>{
-    connection.query("UPDATE burgers SET ?WHERE id = ?",[burgerObj,burgerId],(err,burgerdata)=>{
+    connection.query("UPDATE burgers SET ? WHERE id = ?",[burgerObj, burgerId],(err,burgerdata)=>{
       if (err){
         console.log(err);
         return reject(err);
@@ -47,3 +47,19 @@ const updateBurger = (burgerObj, burgerId)=>{
     });
   });
 };
+const deleteBurger =  burgerId =>{
+  return new Promise((resolve, reject)=>{
+    connection.query("DELETE burgers SET ? WHERE id = ?",[burgerId],(err,burgerdata)=>{
+      if (err){
+        console.log(err);
+        return reject(err);
+      }
+      else if (burgerdata.affectedRows===0){
+        return resolve({message:"Could not find a burger with that id!"});
+      };
+      resolve({message:"Burger was successfully deleted!"});
+    });
+  });
+};
+
+module.exports = { getBurger, createBurger, updateBurger, deleteBurger };
