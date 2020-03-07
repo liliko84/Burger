@@ -10,7 +10,7 @@ $('#burger-form').on('submit', function(event) {
   };
 
   $.ajax({
-    url: '/api/burger',
+    url: '/api/burgers',
     method: 'POST',
     data: burgerData
   }).then(response => {

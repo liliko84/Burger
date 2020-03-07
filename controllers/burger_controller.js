@@ -21,7 +21,7 @@ const getBurger = () => {
 
 const createBurger = burgerObj =>{
   return new Promise ((resolve, reject)=>{
-    connection.query("INSERT INTO burger SET ?", burgerObj,(err,burgerdata)=>{
+    connection.query("INSERT INTO burgers SET ?", burgerObj ,(err, burgerdata)=>{
       if (err){
         console.log(err);
         return reject(err);
@@ -49,7 +49,7 @@ const updateBurger = (burgerObj, burgerId)=>{
 };
 const deleteBurger =  burgerId =>{
   return new Promise((resolve, reject)=>{
-    connection.query("DELETE burgers SET ? WHERE id = ?",[burgerId],(err,burgerdata)=>{
+    connection.query("DELETE FROM burgers WHERE id = ?",[burgerId],(err,burgerdata)=>{
       if (err){
         console.log(err);
         return reject(err);
